@@ -1,0 +1,9 @@
+.sidebarChat{
+    display: flex;
+    padding: 10px;
+    
+}
+
+.sidebarChat__info{
+    margin-left: 10px;
+}

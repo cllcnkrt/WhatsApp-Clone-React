@@ -9,7 +9,6 @@ function App() {
         <Router>
             <Sidebar />
           <Switch>
-         
             <Route path="/rooms/:roomId">
               <Chat />
             </Route>

@@ -6,20 +6,21 @@ import { SearchOutlined } from '@material-ui/icons';
 import AttachFileIcon from '@material-ui/icons/AttachFile';
 import MicIcon from '@material-ui/icons/Mic';
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon';
+import { useParams } from 'react-router';
 /* import SendIcon from '@material-ui/icons/Send'; */
 
 function Chat() {
   const [input, setInput] = useState('');
   const [seed, setSeed] = useState('');
-
+  const { roomId } = useParams();
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
   }, []);
 
   const sendMessage = (e) => {
     e.preventDefault();
-    console.log("inputumuz:",input)
-    setInput("")
+    console.log('inputumuz:', input);
+    setInput('');
   };
   return (
     <div className="chat">
@@ -56,7 +57,12 @@ function Chat() {
       <div className="chat__footer">
         <InsertEmoticonIcon />
         <form>
-          <input value={input} onChange={(e) => setInput(e.target.value)} type="text" placeholder="Type a message" />
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            type="text"
+            placeholder="Type a message"
+          />
           <button onClick={sendMessage} type="submit">
             Send message
           </button>
